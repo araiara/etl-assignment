@@ -30,6 +30,7 @@ The facts that were identified are the salary of the employee, their total worki
 
 ### 4. Identifying required attributes and relationships between the fact and dimension tables
 The following are the identified attributes for the dimension and fact tables.
+
 Table Name              | Attributes
 ----------------------- | ----------------------------------------------------------------------------------------------------------------------------------
 employee_dimension      | employee_id, first_name, last_name, manager_employee_id, hire_date, terminated_date, terminated_reason, dob, location, cost_center
