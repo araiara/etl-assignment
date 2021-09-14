@@ -30,13 +30,15 @@ The facts that were identified are the salary of the employee, their total worki
 
 ### 4. Identifying required attributes and relationships between the fact and dimension tables
 The following are the identified attributes for the dimension and fact tables.
-- employee_dimension (employee_id, first_name, last_name, manager_employee_id, hire_date, terminated_date, terminated_reason, dob, location, cost_center)
-- department_dimension (department_id, department_name)
-- time_dimension (time_id, year, month, day, week, week_day, punch_in_time, punch_out_time)
-- status_dimension (status_id, pay_code)
-- shift_dimension (shift_id, shift_name, start_time, end_time)
-- role_dimension (role_id, employee_role)
-- employee_timesheet_fact (employee_id, department_id, role_id,  shift_id, time_id, status_id, salary, fte, hours_worked)
+Table Name              | Attributes
+----------------------- | ----------------------------------------------------------------------------------------------------------------------------------
+employee_dimension      | employee_id, first_name, last_name, manager_employee_id, hire_date, terminated_date, terminated_reason, dob, location, cost_center
+department_dimension    | department_id, department_name
+time_dimension          | time_id, year, month, day, week, week_day, punch_in_time, punch_out_time)
+status_dimension        | status_id, pay_code
+shift_dimension         | shift_id, shift_name, start_time, end_time
+role_dimension          | role_id, employee_role
+employee_timesheet_fact | employee_id, department_id, role_id,  shift_id, time_id, status_id, salary, fte, hours_worked
 
 Here, the dimension keys are given as employee_id, department_id, role_id, shift_id, time_id, and status_id that measures the salary, fte, and working hours of the employees.
 
