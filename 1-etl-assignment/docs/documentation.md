@@ -44,7 +44,7 @@ employee_timesheet_fact | employee_id, department_id, role_id,  shift_id, time_i
 Here, the dimension keys are given as employee_id, department_id, role_id, shift_id, time_id, and status_id that measures the salary, fte, and working hours of the employees.
 
 ## Logical Model
-![](1-etl-assignment/docs/logical-model.png)
+![](logical-model.png)
 
 
 [Link to the diagram]
