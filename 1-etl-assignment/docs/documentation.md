@@ -35,7 +35,7 @@ Table Name              | Attributes
 ----------------------- | ----------------------------------------------------------------------------------------------------------------------------------
 employee_dimension      | employee_id, first_name, last_name, manager_employee_id, hire_date, terminated_date, terminated_reason, dob, location, cost_center
 department_dimension    | department_id, department_name
-time_dimension          | time_id, year, month, day, week, week_day, punch_in_time, punch_out_time)
+time_dimension          | time_id, year, month, day, week, week_day, punch_in_time, punch_out_time
 status_dimension        | status_id, pay_code
 shift_dimension         | shift_id, shift_name, start_time, end_time
 role_dimension          | role_id, employee_role
@@ -47,5 +47,4 @@ Here, the dimension keys are given as employee_id, department_id, role_id, shift
 ![](logical-model.png)
 
 
-[Link to the diagram]
-(https://app.diagrams.net/#G1cd0tsSuuvPbDWV3TOya3-cSMi2u3s3xS)
+[Link to the diagram](https://app.diagrams.net/#G1cd0tsSuuvPbDWV3TOya3-cSMi2u3s3xS)
