@@ -22,6 +22,15 @@ def create_raw_timesheet_data_schema():
     cursor.close()
     conn.close()
 
+def delete_existing_records(file_path):
+    conn = connect()
+    cursor = conn.cursor()
+    with open(file_path) as delete_file:
+        delete_query = "".join(delete_file.readlines())
+        cursor.execute(delete_query)
+        conn.commit()
+    cursor.close()
+    conn.close()
 
 def extract_timesheet_data(file_path, flag):
     conn = connect()
@@ -29,10 +38,7 @@ def extract_timesheet_data(file_path, flag):
 
     with open(file_path, 'r') as file:
         if flag:
-            with open('../sql/procedure/delete_raw_timesheet_data.sql') as delete_file:
-                delete_query = "".join(delete_file.readlines())
-                cursor.execute(delete_query)
-                conn.commit()
+            delete_existing_records('../sql/procedure/delete_raw_timesheet_data.sql')
 
         next(file)
         for line in file:
@@ -50,10 +56,7 @@ def extract_timesheet_data_copy(file_path, flag):
     cursor = conn.cursor()
 
     if flag:
-        with open('../sql/procedure/delete_raw_timesheet_data.sql') as delete_file:
-            delete_query = "".join(delete_file.readlines())
-            cursor.execute(delete_query)
-            conn.commit()
+        delete_existing_records('../sql/procedure/delete_raw_timesheet_data.sql')
 
     copy_query = '''
         COPY raw_timesheet_data
