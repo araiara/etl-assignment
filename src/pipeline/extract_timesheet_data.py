@@ -9,7 +9,7 @@ def connect():
                 database = "employee_timesheet_db"
             )
 
-# from src.utils import connect
+# from src.utils.utils import connect
 
 def create_raw_timesheet_data_schema():
     conn = connect()
