@@ -1,9 +1,9 @@
 CREATE TABLE IF NOT EXISTS raw_timesheet_data (
-	employee_id	TEXT,
-	cost_center	TEXT,
-	punch_in_time TEXT,	
-	punch_out_time TEXT,
-	punch_apply_date TEXT,
-	hours_worked TEXT,
-	paycode TEXT
+	employee_id	VARCHAR(500),
+	cost_center	VARCHAR(500),
+	punch_in_time VARCHAR(500),	
+	punch_out_time VARCHAR(500),
+	punch_apply_date VARCHAR(500),
+	hours_worked VARCHAR(500),
+	paycode VARCHAR(500)
 );
