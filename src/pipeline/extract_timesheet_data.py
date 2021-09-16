@@ -29,10 +29,11 @@ if __name__ == "__main__":
     for index, path in enumerate(timesheet_data_path):
         if i == 0:
             extract_timesheet_data_copy(path, True, 'raw_timesheet_data', 'employee_timesheet_db')
+            extract_timesheet_data(True, file_name[index]) 
             i += 1
         else:
             extract_timesheet_data_copy(path, False, 'raw_timesheet_data', 'employee_timesheet_db')
-        extract_timesheet_data(file_name[index])
+            extract_timesheet_data(False, file_name[index]) 
 
         # if path == timesheet_data_path[0]:
         #     extract_data(path, True, 'raw_timesheet_data', 'employee_timesheet_db')
