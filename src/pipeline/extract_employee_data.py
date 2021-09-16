@@ -2,7 +2,7 @@ from os import curdir
 import psycopg2 as pg2
 import json 
 import xmltodict
-from utils import *
+from src.utils import *
 
 def extract_employee_data_json(file_path, flag):
     conn = connect()
