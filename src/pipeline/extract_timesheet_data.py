@@ -2,7 +2,7 @@ import psycopg2 as pg2
 from src.utils import *
 
 def extract_timesheet_data_copy(file_path, flag):
-    conn = connect()
+    conn = connect('employee_timesheet_db')
     cursor = conn.cursor()
 
     if flag:

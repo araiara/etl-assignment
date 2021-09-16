@@ -1,1 +1,0 @@
-TRUNCATE TABLE raw_employee_data;

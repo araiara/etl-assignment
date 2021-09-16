@@ -1,11 +1,9 @@
-from os import curdir
-import psycopg2 as pg2
 import json 
 import xmltodict
 from src.utils import *
 
 def extract_employee_data_json(file_path, flag):
-    conn = connect()
+    conn = connect('employee_timesheet_db')
     cursor = conn.cursor()
 
     with open(file_path) as json_data:
@@ -22,7 +20,7 @@ def extract_employee_data_json(file_path, flag):
     conn.close()
 
 def extract_employee_data_xml(file_path, flag):
-    conn = connect()
+    conn = connect('employee_timesheet_db')
     cursor = conn.cursor()
 
     with open(file_path) as xml_file:
@@ -41,7 +39,7 @@ def extract_employee_data_xml(file_path, flag):
     conn.close()
  
 if __name__ == "__main__":
-    create_table_schema('../../schema/create_raw_employee_data.sql')
+    # create_table_schema('employee')
 
     selection = int(input('''
         Select the format to import from.

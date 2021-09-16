@@ -1,17 +1,24 @@
 import psycopg2 as pg2
 
-def connect():
+def connect(database):
     return pg2.connect(
                 host = "localhost",
                 user = "postgres",
                 password = "sql-admin",
                 port = "5432",
-                database = "employee_timesheet_db"
+                database = database
             )
 
-def create_table_schema(schema_path):
-    conn = connect()
+def create_table_schema(schema_name, database):
+    conn = connect(database)
     cursor = conn.cursor()
+
+    if schema_name == 'sales':
+        schema_path = '../schema/create_raw_sales_data.sql'
+    elif schema_name == 'employee':
+        schema_path = '../schema/create_raw_employee_data.sql'
+    elif schema_name == 'timesheet':
+        schema_path = '../schema/create_raw_timesheet_data.sql'
 
     with open(schema_path) as create_file:
         create_query = "".join(create_file.readlines())
@@ -20,13 +27,14 @@ def create_table_schema(schema_path):
     cursor.close()
     conn.close()
 
-def delete_existing_records(file_path):
-    conn = connect()
+def delete_existing_records(schema_name, database):
+    conn = connect(database)
     cursor = conn.cursor()
-    with open(file_path) as delete_file:
-        delete_query = "".join(delete_file.readlines())
-        cursor.execute(delete_query)
-        conn.commit()
+
+    delete_query = 'TRUNCATE TABLE {}'.format(schema_name)
+    cursor.execute(delete_query)
+    conn.commit()
+
     cursor.close()
     conn.close()
 

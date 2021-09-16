@@ -18,7 +18,7 @@ def extract_employee_data():
 
     dest_cursor.execute('DELETE FROM raw_destination_employee_data;');
 
-    with open('../sql/procedure/extract_raw_data_from_db.sql') as select_file:
+    with open('../sql/procedure/extract_raw_employee_data_from_db.sql') as select_file:
         select_query = "".join(select_file.readlines())
         source_cursor.execute(select_query)
         result = source_cursor.fetchall()
