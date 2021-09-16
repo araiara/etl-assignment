@@ -21,6 +21,8 @@ def create_table_schema(schema_name, database):
         schema_path = '../../schema/create_raw_timesheet_data.sql'
     elif schema_name == 'destination_employee':
         schema_path = '../../schema/create_raw_destination_employee_data.sql'
+    elif schema_name == 'archive_timesheet':
+        schema_path = '../../schema/create_raw_timesheet_data_archive.sql'
 
     with open(schema_path) as create_file:
         create_query = "".join(create_file.readlines())
