@@ -14,11 +14,13 @@ def create_table_schema(schema_name, database):
     cursor = conn.cursor()
 
     if schema_name == 'sales':
-        schema_path = '../schema/create_raw_sales_data.sql'
+        schema_path = '../../schema/create_raw_sales_data.sql'
     elif schema_name == 'employee':
-        schema_path = '../schema/create_raw_employee_data.sql'
+        schema_path = '../../schema/create_raw_employee_data.sql'
     elif schema_name == 'timesheet':
-        schema_path = '../schema/create_raw_timesheet_data.sql'
+        schema_path = '../../schema/create_raw_timesheet_data.sql'
+    elif schema_name == 'destination_employee':
+        schema_path = '../../schema/create_raw_destination_employee_data.sql'
 
     with open(schema_path) as create_file:
         create_query = "".join(create_file.readlines())
@@ -38,12 +40,17 @@ def delete_existing_records(schema_name, database):
     cursor.close()
     conn.close()
 
-def extract_data(file_path, flag, delete_path, insert_path):
-    conn = connect()
+def extract_data(file_path, flag, schema_name, database):
+    conn = connect(database)
     cursor = conn.cursor()
 
     if flag:
-        delete_existing_records(delete_path)
+        delete_existing_records(schema_name, database)
+    
+    if schema_name == 'raw_timesheet_data':
+        insert_path = '../sql/query/insert_raw_timesheet_data.sql'
+    elif schema_name == 'raw_employee_data':
+        insert_path = '../sql/query/insert_raw_employee_data.sql'
 
     with open(file_path, 'r') as file:       
         next(file)

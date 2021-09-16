@@ -1,4 +1,3 @@
-import psycopg2 as pg2
 from src.utils import *
 
 def extract_timesheet_data_copy(file_path, flag):
@@ -6,7 +5,7 @@ def extract_timesheet_data_copy(file_path, flag):
     cursor = conn.cursor()
 
     if flag:
-        delete_existing_records('/sql/query/delete_raw_timesheet_data.sql')
+        delete_existing_records('raw_timesheet_data', 'employee_timesheet_db')
 
     copy_query = '''
         COPY raw_timesheet_data
@@ -23,13 +22,12 @@ def extract_timesheet_data_copy(file_path, flag):
     conn.close()
  
 if __name__ == "__main__":
-    # create_table_schema('../../schema/create_raw_timesheet_data.sql')
-
     # timesheet_data_path = ['../../data/timesheet_2021_05_23.csv', '../../data/timesheet_2021_06_23.csv', '../../data/timesheet_2021_07_24.csv']
     timesheet_data_path = ['../../data/timesheet_2021_05_23.csv']
+
     # F:/lf-data-engineering-internship/week-3-OLAP/assignments/data/employee_2021_08_01.csv
     for path in timesheet_data_path:
         if path == timesheet_data_path[0]:
-            extract_data(path, True, '../sql/query/delete_raw_timesheet_data.sql', '../sql/query/insert_raw_timesheet_data.sql')
+            extract_data(path, True, 'raw_timesheet_data', 'employee_timesheet_db')
         else:
-            extract_data(path, False, '../sql/query/delete_raw_timesheet_data.sql', '../sql/query/insert_raw_timesheet_data.sql')
+            extract_data(path, False, 'raw_timesheet_data', 'employee_timesheet_db')

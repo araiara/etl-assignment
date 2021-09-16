@@ -1,7 +1,7 @@
 from src.utils import *
 
 def extract_sales_data():
-    # create_table_schema('sales', 'sales_db') # create sales table
+    create_table_schema('sales', 'sales_db') # create sales table
 
     source_conn = connect('sales_db')
     dest_conn = connect('sales_db')
