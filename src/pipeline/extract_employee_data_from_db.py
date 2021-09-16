@@ -1,7 +1,7 @@
 from src.utils import *
 
 def extract_employee_data():
-    create_table_schema('destination_employee', 'employee_timesheet_db') # create employee destination table
+    # create_table_schema('destination_employee', 'employee_timesheet_db') # create employee destination table
 
     source_conn = connect('employee_timesheet_db')
     dest_conn = connect('employee_timesheet_db')
