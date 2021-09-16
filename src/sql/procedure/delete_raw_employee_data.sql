@@ -1,1 +1,0 @@
-DELETE FROM raw_employee_data;
