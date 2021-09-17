@@ -33,7 +33,7 @@ def extract_data_from_file_paths():
         {
             'database': 'employee_timesheet',
             'table': 'raw_timesheet_data',
-            'file_paths': ['../../data/timesheet_2021_05_23.csv', '../../data/timesheet_2021_06_23.csv'],
+            'file_paths': ['../../data/timesheet_2021_07_24.csv'],
             'sql_insert': '../sql/query/insert_raw_timesheet_data.sql'
         }        
     ]

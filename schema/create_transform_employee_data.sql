@@ -3,7 +3,7 @@ CREATE TABLE IF NOT EXISTS employee (
     client_employee_id VARCHAR(255),
     first_name VARCHAR(255),
     last_name VARCHAR(255),
-    department_id INT,
+    department_id VARCHAR(255),
     manager_employee_id VARCHAR(255),
     salary FLOAT,
     hire_date DATE,
@@ -12,5 +12,8 @@ CREATE TABLE IF NOT EXISTS employee (
     dob DATE,
     fte FLOAT,
     weekly_hours FLOAT,
-    role VARCHAR(255)
+    role VARCHAR(255),
+    CONSTRAINT fk_employee_department_id
+    FOREIGN KEY (department_id)
+    REFERENCES department(client_department_id)
 );
