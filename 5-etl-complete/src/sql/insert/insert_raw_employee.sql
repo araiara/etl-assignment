@@ -1,0 +1,4 @@
+COPY raw_employee
+FROM %s
+DELIMITER ','
+CSV HEADER;

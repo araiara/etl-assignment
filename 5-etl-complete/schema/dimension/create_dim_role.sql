@@ -1,0 +1,4 @@
+CREATE TABLE IF NOT EXISTS dim_role (
+  id SERIAL PRIMARY KEY,
+  role_name VARCHAR(255)
+);
