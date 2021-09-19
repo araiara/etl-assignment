@@ -20,3 +20,6 @@ In this phase, the data are extracted from the given files of format CSV, JSON, 
 - Close file.
 - Commit connection.
 - Close connection
+
+## Extraction from DB
+

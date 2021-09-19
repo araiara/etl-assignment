@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS raw_employee_data (
+CREATE TABLE IF NOT EXISTS raw_employee (
   employee_id VARCHAR(500),
   first_name VARCHAR(500),
   last_name VARCHAR(500),
