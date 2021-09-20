@@ -1,0 +1,4 @@
+COPY raw_product
+FROM %s
+DELIMITER ','
+CSV HEADER;
